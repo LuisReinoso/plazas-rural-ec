@@ -1,0 +1,76 @@
+<div style="text-align:center">
+  <h1><strong>Información plazas de medicina</strong></h1>
+</div>
+<div style="overflow-x:auto;">
+  <ngx-table
+    [configuration]="configuration"
+    [data]="data"
+    [toggleRowIndex]="toggleRowIndex"
+    [columns]="columns"
+  >
+    <ng-template let-plaza let-index="index">
+      <ng-container (dblclick)="descargarInformacion()">
+        <td>
+          <h5>{{ plaza.zona }}</h5>
+        </td>
+        <td>
+          <div>{{ plaza.distrito }}</div>
+        </td>
+        <td>
+          <div>{{ plaza.provincia }}</div>
+        </td>
+        <td>
+          <div>{{ plaza.canton }}</div>
+        </td>
+        <td>
+          <div>{{ plaza.parroquia }}</div>
+        </td>
+        <td>
+          <div>{{ plaza.unicodigo }}</div>
+        </td>
+        <td>
+          <div>{{ plaza.establecimiento }}</div>
+        </td>
+        <td>
+          <div>{{ plaza.tipologia }}</div>
+        </td>
+        <td>
+          <span>{{ plaza.numeroPlazasDisponibles }}</span>
+          <div class="bar bar-sm">
+            <div
+              class="bar-item"
+              role="progressbar"
+              [style.width]="plaza.numeroPlazasDisponibles + '%'"
+              aria-valuenow="plaza.numeroPlazasDisponibles"
+              aria-valuemin="0"
+              aria-valuemax="10"
+            ></div>
+          </div>
+        </td>
+        <td>
+          <span>{{ plaza.numeroIntencionPlaza }}</span>
+          <div class="bar bar-sm">
+            <div
+              class="bar-item"
+              role="progressbar"
+              [style.width]="plaza.numeroIntencionPlaza + '%'"
+              aria-valuenow="plaza.numeroIntencionPlaza"
+              aria-valuemin="0"
+              aria-valuemax="10"
+            ></div>
+          </div>
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="votarEnPlaza($event, index)">
+            <i class="icon icon-arrow-left"></i> Votar
+          </button>
+        </td>
+      </ng-container>
+    </ng-template>
+  </ngx-table>
+</div>
+<span class="d-inline d-md-none"
+  >Made with &nbsp;<span style="color:red">&hearts;</span>&nbsp; by
+  <a href="https://twitter.com/luisreinosodev">Luis Reinoso</a></span
+>
+<router-outlet></router-outlet>
