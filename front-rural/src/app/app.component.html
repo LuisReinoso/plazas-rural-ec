@@ -2,14 +2,22 @@
   <h1><strong>Información plazas de medicina</strong></h1>
 </div>
 <div style="overflow-x:auto;">
-  <ngx-table
-    [configuration]="configuration"
-    [data]="data"
-    [toggleRowIndex]="toggleRowIndex"
-    [columns]="columns"
-  >
-    <ng-template let-plaza let-index="index">
-      <ng-container (dblclick)="descargarInformacion()">
+  <table class="table">
+    <thead>
+      <th>Zonas</th>
+      <th>Distrito</th>
+      <th>Provincia</th>
+      <th>Cantón</th>
+      <th>Parroquia</th>
+      <th>Unicodigo</th>
+      <th>Establecimiento</th>
+      <th>Tipología</th>
+      <th>Plazas disponibles</th>
+      <th>Estoy interesado</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plaza of data; let indice = index">
         <td>
           <h5>{{ plaza.zona }}</h5>
         </td>
@@ -61,13 +69,13 @@
           </div>
         </td>
         <td>
-          <button class="btn btn-primary" (click)="votarEnPlaza($event, index)">
+          <button class="btn btn-primary" (click)="votarEnPlaza(indice)">
             <i class="icon icon-arrow-left"></i> Votar
           </button>
         </td>
-      </ng-container>
-    </ng-template>
-  </ngx-table>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <span class="d-inline d-md-none"
   >Made with &nbsp;<span style="color:red">&hearts;</span>&nbsp; by

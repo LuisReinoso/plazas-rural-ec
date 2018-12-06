@@ -96,20 +96,13 @@ export class AppComponent implements OnInit {
   actualizarPlaza(plaza: IPlaza) {
     this.plazaService
       .actualizarPlaza(plaza)
-      .subscribe(data => {}, error => console.log(error));
+      .subscribe(data => this.cd.detectChanges(), error => console.log(error));
   }
 
-  votarEnPlaza($event, index: number): void {
-    $event.preventDefault();
+  votarEnPlaza(index: number): void {
     this.data[index].numeroIntencionPlaza =
       this.data[index].numeroIntencionPlaza + 1;
     this.actualizarPlaza(this.data[index]);
-  }
-
-  descargarInformacion(info: { event: string; value: { row: IPlaza } }) {
-    if (info.event === 'onClick') {
-    } else if (info.event === 'onDoubleClick') {
-    }
   }
 }
 
