@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "core-js": "^2.5.4",
-    "ngx-easy-table": "^7.2.0",
     "rxjs": "^6.0.0",
     "sails.io.js": "^1.2.1",
     "socket.io-client": "^2.2.0",
